@@ -2,30 +2,31 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Button from "@/components/atoms/Button";
 import Input from "@/components/atoms/Input";
+import Select from "@/components/atoms/Select";
 import FormField from "@/components/molecules/FormField";
-
 const ClientForm = ({ client, onSubmit, onCancel, isLoading = false }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    company: ""
+    company: "",
+    status: "Active"
   });
-
   const [errors, setErrors] = useState({});
 
-  useEffect(() => {
+useEffect(() => {
     if (client) {
       setFormData({
         name: client.name || "",
         email: client.email || "",
         phone: client.phone || "",
-        company: client.company || ""
+        company: client.company || "",
+        status: client.status || "Active"
       });
     }
   }, [client]);
 
-  const validateForm = () => {
+const validateForm = () => {
     const newErrors = {};
 
     if (!formData.name.trim()) {
@@ -44,6 +45,10 @@ const ClientForm = ({ client, onSubmit, onCancel, isLoading = false }) => {
 
     if (!formData.company.trim()) {
       newErrors.company = "Company is required";
+    }
+
+    if (!formData.status.trim()) {
+      newErrors.status = "Status is required";
     }
 
     setErrors(newErrors);
@@ -118,7 +123,19 @@ const ClientForm = ({ client, onSubmit, onCancel, isLoading = false }) => {
             error={errors.phone}
           />
         </FormField>
-      </div>
+</div>
+
+      <FormField label="Client Status" required error={errors.status}>
+        <Select
+          value={formData.status}
+          onChange={handleChange("status")}
+          error={errors.status}
+        >
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
+          <option value="Prospective">Prospective</option>
+        </Select>
+      </FormField>
 
       <div className="flex justify-end space-x-3 pt-4">
         <Button

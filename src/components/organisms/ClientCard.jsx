@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
+import StatusBadge from "@/components/molecules/StatusBadge";
 
 const ClientCard = ({ client, onEdit, onDelete }) => {
   const getInitials = (name) => {
@@ -19,7 +20,7 @@ const ClientCard = ({ client, onEdit, onDelete }) => {
       whileHover={{ scale: 1.02, y: -2 }}
       className="card p-6 group"
     >
-      <div className="flex items-start justify-between mb-4">
+<div className="flex items-start justify-between mb-4">
         <div className="flex items-center space-x-3">
           <div className="bg-gradient-primary p-3 rounded-full text-white font-bold text-sm">
             {getInitials(client.name)}
@@ -27,9 +28,11 @@ const ClientCard = ({ client, onEdit, onDelete }) => {
           <div>
             <h3 className="font-semibold text-gray-900">{client.name}</h3>
             <p className="text-sm text-gray-600">{client.company}</p>
+            <div className="mt-1">
+              <StatusBadge status={client.status || "Active"} />
+            </div>
           </div>
         </div>
-        
         <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex space-x-2">
           <Button
             variant="ghost"

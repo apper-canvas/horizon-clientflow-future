@@ -71,8 +71,16 @@
     @apply status-badge bg-purple-100 text-purple-800;
   }
 
-  .status-done {
+.status-done {
     @apply status-badge bg-green-100 text-green-800;
+  }
+
+  .status-inactive {
+    @apply status-badge bg-gray-100 text-gray-800;
+  }
+
+  .status-prospective {
+    @apply status-badge bg-orange-100 text-orange-800;
   }
 
   .shimmer {
@@ -80,8 +88,16 @@
     background-size: 200% 100%;
     animation: shimmer 2s infinite;
   }
-}
 
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+}
 /* Toast Overrides */
 .Toastify__toast-container {
   width: 320px;
