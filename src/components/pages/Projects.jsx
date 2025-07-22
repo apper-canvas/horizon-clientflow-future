@@ -81,7 +81,7 @@ const Projects = () => {
     return clients.find(c => c.Id === clientId);
   };
 
-  const statusOptions = ["All", "Active", "On Hold", "Completed"];
+const statusOptions = ["All", "Planning", "In Progress", "Review", "Completed"];
 
   if (projectsLoading) {
     return <Loading type="grid" />;

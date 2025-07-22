@@ -3,36 +3,40 @@
     "Id": 1,
     "title": "Website Redesign",
     "clientId": 1,
-    "status": "Active",
+    "status": "In Progress",
     "deadline": "2024-03-15T23:59:59Z",
     "description": "Complete redesign of company website with modern UI/UX",
+    "budget": 15000,
     "createdAt": "2024-01-15T09:30:00Z"
   },
   {
     "Id": 2,
     "title": "Brand Identity Package",
     "clientId": 2,
-    "status": "Active",
+    "status": "Planning",
     "deadline": "2024-02-28T23:59:59Z",
     "description": "Logo design, business cards, and brand guidelines",
+    "budget": 8500,
     "createdAt": "2024-01-18T15:00:00Z"
   },
   {
     "Id": 3,
     "title": "E-commerce Platform",
     "clientId": 3,
-    "status": "On Hold",
+    "status": "Review",
     "deadline": "2024-04-30T23:59:59Z",
     "description": "Custom e-commerce solution with payment integration",
+    "budget": 25000,
     "createdAt": "2024-01-22T11:45:00Z"
   },
   {
     "Id": 4,
     "title": "Mobile App Development",
     "clientId": 1,
-    "status": "Active",
+    "status": "In Progress",
     "deadline": "2024-05-15T23:59:59Z",
     "description": "iOS and Android app for customer engagement",
+    "budget": 35000,
     "createdAt": "2024-01-25T17:15:00Z"
   },
   {
@@ -42,15 +46,17 @@
     "status": "Completed",
     "deadline": "2024-01-31T23:59:59Z",
     "description": "Landing page for new consulting services",
+    "budget": 5500,
     "createdAt": "2024-01-28T10:50:00Z"
   },
   {
     "Id": 6,
     "title": "Dashboard Analytics",
     "clientId": 5,
-    "status": "Active",
+    "status": "Planning",
     "deadline": "2024-03-30T23:59:59Z",
     "description": "Admin dashboard with real-time analytics",
+    "budget": 18000,
     "createdAt": "2024-02-01T09:00:00Z"
   }
 ]

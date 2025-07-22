@@ -8,24 +8,26 @@ import Textarea from "@/components/atoms/Textarea";
 import FormField from "@/components/molecules/FormField";
 
 const ProjectForm = ({ project, clients, onSubmit, onCancel, isLoading = false }) => {
-  const [formData, setFormData] = useState({
+const [formData, setFormData] = useState({
     title: "",
     clientId: "",
-    status: "Active",
+    status: "Planning",
     deadline: "",
-    description: ""
+    description: "",
+    budget: ""
   });
 
   const [errors, setErrors] = useState({});
 
-  useEffect(() => {
+useEffect(() => {
     if (project) {
       setFormData({
         title: project.title || "",
         clientId: project.clientId?.toString() || "",
-        status: project.status || "Active",
+        status: project.status || "Planning",
         deadline: project.deadline ? format(new Date(project.deadline), "yyyy-MM-dd") : "",
-        description: project.description || ""
+        description: project.description || "",
+        budget: project.budget?.toString() || ""
       });
     }
   }, [project]);
@@ -41,8 +43,12 @@ const ProjectForm = ({ project, clients, onSubmit, onCancel, isLoading = false }
       newErrors.clientId = "Client is required";
     }
 
-    if (!formData.deadline) {
+if (!formData.deadline) {
       newErrors.deadline = "Deadline is required";
+    }
+
+    if (!formData.budget || isNaN(formData.budget) || parseFloat(formData.budget) <= 0) {
+      newErrors.budget = "Valid budget amount is required";
     }
 
     setErrors(newErrors);
@@ -52,10 +58,11 @@ const ProjectForm = ({ project, clients, onSubmit, onCancel, isLoading = false }
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      const submitData = {
+const submitData = {
         ...formData,
         clientId: parseInt(formData.clientId),
-        deadline: new Date(formData.deadline).toISOString()
+        deadline: new Date(formData.deadline).toISOString(),
+        budget: parseFloat(formData.budget)
       };
       onSubmit(submitData);
     }
@@ -76,7 +83,7 @@ const ProjectForm = ({ project, clients, onSubmit, onCancel, isLoading = false }
     }
   };
 
-  const statusOptions = ["Active", "On Hold", "Completed"];
+const statusOptions = ["Planning", "In Progress", "Review", "Completed"];
 
   return (
     <motion.form
@@ -94,7 +101,7 @@ const ProjectForm = ({ project, clients, onSubmit, onCancel, isLoading = false }
         />
       </FormField>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <FormField label="Client" required error={errors.clientId}>
           <Select
             value={formData.clientId}
@@ -125,6 +132,18 @@ const ProjectForm = ({ project, clients, onSubmit, onCancel, isLoading = false }
             value={formData.deadline}
             onChange={handleChange("deadline")}
             error={errors.deadline}
+          />
+        </FormField>
+
+        <FormField label="Budget" required error={errors.budget}>
+          <Input
+            type="number"
+            value={formData.budget}
+            onChange={handleChange("budget")}
+            placeholder="Enter budget amount"
+            min="0"
+            step="0.01"
+            error={errors.budget}
           />
         </FormField>
       </div>
