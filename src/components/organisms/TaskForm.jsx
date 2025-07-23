@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
-import Button from "@/components/atoms/Button";
-import Input from "@/components/atoms/Input";
+import FormField from "@/components/molecules/FormField";
 import Select from "@/components/atoms/Select";
 import Textarea from "@/components/atoms/Textarea";
-import FormField from "@/components/molecules/FormField";
+import Input from "@/components/atoms/Input";
+import Button from "@/components/atoms/Button";
 
 const TaskForm = ({ task, projects, onSubmit, onCancel, isLoading = false }) => {
   const [formData, setFormData] = useState({
@@ -71,12 +71,12 @@ const TaskForm = ({ task, projects, onSubmit, onCancel, isLoading = false }) => 
     if (errors[field]) {
       setErrors(prev => ({
         ...prev,
-        [field]: ""
+[field]: ""
       }));
     }
   };
 
-  const statusOptions = ["To Do", "In Progress", "Done"];
+  const statusOptions = ["To Do", "In Progress", "Review", "Done"];
 
   return (
     <motion.form
