@@ -6,9 +6,9 @@ import StatusBadge from "@/components/molecules/StatusBadge";
 import Select from "@/components/atoms/Select";
 
 const TaskItem = ({ task, project, onStatusChange, onEdit, onDelete }) => {
-  const isOverdue = new Date(task.dueDate) < new Date() && task.status !== "Done";
+const isOverdue = new Date(task.dueDate) < new Date() && task.status !== "Done";
   
-  const statusOptions = ["To Do", "In Progress", "Done"];
+  const statusOptions = ["To Do", "In Progress", "Review", "Done"];
 
   const handleStatusChange = (newStatus) => {
     onStatusChange?.(task.Id, newStatus);

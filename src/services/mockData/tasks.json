@@ -8,11 +8,11 @@
     "description": "Create detailed wireframes for the new homepage layout",
     "createdAt": "2024-01-15T10:00:00Z"
   },
-  {
+{
     "Id": 2,
     "title": "Develop responsive navigation",
     "projectId": 1,
-    "status": "In Progress",
+    "status": "Review",
     "dueDate": "2024-02-15T17:00:00Z",
     "description": "Build mobile-first navigation component",
     "createdAt": "2024-01-16T11:00:00Z"
@@ -26,11 +26,11 @@
     "description": "Initial logo concepts and variations",
     "createdAt": "2024-01-18T15:30:00Z"
   },
-  {
+{
     "Id": 4,
     "title": "Color palette selection",
     "projectId": 2,
-    "status": "In Progress",
+    "status": "Review",
     "dueDate": "2024-02-12T17:00:00Z",
     "description": "Choose primary and secondary brand colors",
     "createdAt": "2024-01-19T09:00:00Z"
@@ -53,11 +53,11 @@
     "description": "Integrate Stripe payment processing",
     "createdAt": "2024-01-23T14:00:00Z"
   },
-  {
+{
     "Id": 7,
     "title": "User authentication system",
     "projectId": 4,
-    "status": "In Progress",
+    "status": "Review",
     "dueDate": "2024-02-20T17:00:00Z",
     "description": "Implement secure login and registration",
     "createdAt": "2024-01-25T17:45:00Z"
@@ -89,11 +89,11 @@
     "description": "Meta tags, sitemap, and performance optimization",
     "createdAt": "2024-01-29T09:30:00Z"
   },
-  {
+{
     "Id": 11,
     "title": "Data visualization charts",
     "projectId": 6,
-    "status": "In Progress",
+    "status": "Review",
     "dueDate": "2024-02-25T17:00:00Z",
     "description": "Create interactive charts for analytics dashboard",
     "createdAt": "2024-02-01T09:30:00Z"

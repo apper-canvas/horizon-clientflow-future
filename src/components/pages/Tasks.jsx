@@ -88,15 +88,16 @@ const Tasks = () => {
 
   const getProjectById = (projectId) => {
     return projects.find(p => p.Id === projectId);
-  };
+};
 
-  const statusOptions = ["All", "To Do", "In Progress", "Done"];
+  const statusOptions = ["All", "To Do", "In Progress", "Review", "Done"];
 
   const getStatusStats = () => {
     const stats = {
       total: tasks.length,
       todo: tasks.filter(t => t.status === "To Do").length,
       inProgress: tasks.filter(t => t.status === "In Progress").length,
+      review: tasks.filter(t => t.status === "Review").length,
       done: tasks.filter(t => t.status === "Done").length
     };
     return stats;
@@ -145,13 +146,20 @@ const Tasks = () => {
             </div>
             <div className="text-2xl font-bold text-gray-500">{stats.todo}</div>
           </div>
-          
-          <div className="card p-4">
+<div className="card p-4">
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium text-purple-600">In Progress</span>
               <ApperIcon name="Clock" className="h-4 w-4 text-purple-400" />
             </div>
             <div className="text-2xl font-bold text-purple-600">{stats.inProgress}</div>
+          </div>
+          
+          <div className="card p-4">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-medium text-yellow-600">Review</span>
+              <ApperIcon name="Eye" className="h-4 w-4 text-yellow-400" />
+            </div>
+            <div className="text-2xl font-bold text-yellow-600">{stats.review}</div>
           </div>
           
           <div className="card p-4">
