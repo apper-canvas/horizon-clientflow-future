@@ -16,9 +16,11 @@ const StatusBadge = ({ status }) => {
       case "to do":
       case "todo":
         return "to-do";
-      case "in-progress":
+case "in-progress":
       case "in progress":
         return "in-progress";
+      case "review":
+        return "review";
       case "done":
         return "done";
       default:
